@@ -11,5 +11,5 @@ def rename(df):
     """docstring lorem ipsum dolor sit amet
     holberton require s students to write
     useless stuff dot net"""
-    df['Timestamp'] = pd.to_datetime(df['Timestamp'], unit='s')
-    return df[['Timestamp', 'Close']]
+    df['Datetime'] = pd.to_datetime(df['Timestamp'], unit='s')
+    return df[['Datetime', 'Close']]
