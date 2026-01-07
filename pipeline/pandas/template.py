@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import pandas as pd
 
 """docstring lorem ipsum dolor sit amet
