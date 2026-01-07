@@ -14,8 +14,9 @@ def fill(df):
     # ffill close column
     df_new['Close'] = df_new['Close'].ffill()
     # fill columns from close
-    cols1 = ['High','Low', 'Open']
     df_new['High'] = df_new['High'].fillna(df_new['Close'])
+    df_new['Low'] = df_new['Low'].fillna(df_new['Close'])
+    df_new['Open'] = df_new['Open'].fillna(df_new['Close'])
     # fillna with 0
     cols = ['Volume_(BTC)', 'Volume_(Currency)']
     df_new[cols] = df_new[cols].fillna(0)
