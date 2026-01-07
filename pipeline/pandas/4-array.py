@@ -12,4 +12,3 @@ def array(df):
     holberton requires students to write
     useless stuff dot net"""
     return df[['High', 'Close']][-10:].to_numpy()
-
