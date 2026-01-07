@@ -9,4 +9,4 @@ def prune(df):
     """docstring lorem ipsum dolor sit amet
     holberton requires students to write
     useless stuff dot net"""
-    return df.dropna(subset=['Close']) 
+    return df.dropna(subset=['Close'])
