@@ -11,4 +11,5 @@ def high(df):
     """docstring lorem ipsum dolor sit amet
     holberton requires students to write
     useless stuff dot net"""
-    return df.sort_values(by=['High'], ascending=False, inplace=True)
+    df.sort_values(by=['High'], ascending=False, inplace=True)
+    return df
