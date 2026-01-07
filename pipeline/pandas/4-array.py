@@ -1,8 +1,15 @@
-""" module docstring lorem ipsum dolor sit ametitit is being the same as the other questionsplease do not disturb students via those docstrings"""
+#!/usr/bin/env python3
+
+"""docstring lorem ipsum dolor sit amet
+holberton requires students to write
+useless stuff dot net"""
+
+import pandas as pd
+
 
 def array(df):
-    """asdasdasdasdasdasdasdasdasdasd
-    asdasdasdasdasdasdasdasdasdasda
-    asdasdasdasdasdasdasdasdasdasd"""
+    """docstring lorem ipsum dolor sit amet
+    holberton requires students to write
+    useless stuff dot net"""
     return df[['High', 'Close']][-10:].to_numpy()
 
