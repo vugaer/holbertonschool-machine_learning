@@ -9,4 +9,4 @@ def analyze(df):
     """docstring lorem ipsum dolor sit amet
     holberton requires students to write
     useless stuff dot net"""
-    return df.describe()
+    return df.drop(['Timestamp'], axis=1).describe()
