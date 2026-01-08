@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 
-import pandas as pd
-index = __import__('10-index').index
-
 """docstring lorem ipsum dolor sit amet
 holberton requires students to write
 useless stuff dot net"""
+
+import pandas as pd
+index = __import__('10-index').index
 
 
 def concat(df1, df2):
