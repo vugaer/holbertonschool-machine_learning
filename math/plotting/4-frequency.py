@@ -20,15 +20,15 @@ def frequency():
     plt.figure(figsize=(6.4, 4.8))
 
     # plot the actual
-    bins = range(0, int(max(student_grades)) + 10, 10) # make 10 bins
+    bins = range(0, 101, 10) # make 10 bins
     plt.hist(student_grades, bins=bins, edgecolor='k')  # color def & ec black
 
     # texts and stuff
     plt.xlabel('Grades')
     plt.ylabel('Number of Students')
     plt.title('Project A')
-
+    plt.ylim(0, 30)  # case spesific
+    plt.xlim(0, 100)  # without it 100 is not seen
     # save and show
     plt.show()
     plt.savefig('plot5.png')
-    print(bins)
