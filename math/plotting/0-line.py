@@ -10,5 +10,5 @@ def line():
     # my code
 
     x = np.arange(0,11)
-    plt.plot(x, y)
-    plt.show()
+    plt.plot(x, y, 'r')
+    plt.savefig('plot.png')
