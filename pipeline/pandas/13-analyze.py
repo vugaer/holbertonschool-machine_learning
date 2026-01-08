@@ -4,8 +4,6 @@
 holberton requires students to write
 useless stuff dot net"""
 
-import pandas as pd
-
 
 def analyze(df):
     """docstring lorem ipsum dolor sit amet
