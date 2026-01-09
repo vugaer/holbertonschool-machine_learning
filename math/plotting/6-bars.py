@@ -23,16 +23,18 @@ def bars():
     # variables
     names = ['Farrah', 'Fred', 'Felicia']
     fruits = ['apples', 'bananas', 'oranges', 'peaches']
-    #plt.rcParams['lines.linewidth'] = 0.5
+    # plt.rcParams['lines.linewidth'] = 0.5
 
     # bar settings
-    plt.bar(names, data[0], color='red', label=fruits[0], width = 0.5)
-    plt.bar(names, data[1], color='yellow', width = 0.5,
+    plt.bar(names, data[0], color='red', label=fruits[0], width=0.5)
+    plt.bar(names, data[1], color='yellow', width=0.5,
             bottom=data[0], label=fruits[1])
-    plt.bar(names, data[2], color='#ff8000', width = 0.5,
-            bottom=data[0] + data[1], label=fruits[2])
-    plt.bar(names, data[3], color='#ffe5b4', width = 0.5,
-            bottom=data[0] + data[1] + data[2], label=fruits[3])
+
+    plt.bar(names, data[2], color='#ff8000', width=0.5,
+            bottom=data[0]+data[1], label=fruits[2])
+
+    plt.bar(names, data[3], color='#ffe5b4', width=0.5,
+            bottom=data[0]+data[1]+data[2], label=fruits[3])
 
     # plot settings
     plt.ylim(0, 80)
