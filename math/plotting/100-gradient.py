@@ -5,6 +5,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def gradient():
     """ I fill the comments around and still
     the checker wants me to fill more lol """
@@ -17,7 +18,7 @@ def gradient():
     plt.figure(figsize=(6.4, 4.8))
 
     # plot settings
-    plt.scatter(x , y, c=z)
+    plt.scatter(x, y, c=z)
     plt.colorbar(label='elevation (m)')
     plt.xlabel('x coordinate (m)')
     plt.ylabel('y coordinate (m)')
