@@ -21,6 +21,8 @@ def isinvalid(poly):
     """ we will create a program that will
     end future developer's j*b... let's go """
     if isinstance(poly, list):
+        if not poly:
+            return True
         notint = False
         for i in poly:
             if not isinstance(i, int):
