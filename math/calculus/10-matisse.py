@@ -17,6 +17,7 @@ def poly_derivative(poly):
             return [0]
         return npoly[:-1]
 
+
 def isinvalid(poly):
     """ we will create a program that will
     end future developer's j*b... let's go """
