@@ -8,7 +8,5 @@ def summation_i_squared(n, i=1):
     if type(n) is not int:
         return None
     else:
-        cem = 0
-        for x in range(i, n+1):
-            cem += x**2
-        return cem
+        squared = list(map(lambda x: x**2, range(i, n+1)))
+        return sum(squared)
