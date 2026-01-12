@@ -12,7 +12,7 @@ def poly_integral(poly, C=0):
     else:
         npoly = [C] + [0] * len(poly)
         for i in range(1, len(npoly)):
-            npoly[i] = poly[i-1]/i
+            npoly[i] = int(poly[i-1])/int(i)
         return npoly
 
 
