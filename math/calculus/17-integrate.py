@@ -17,6 +17,8 @@ def poly_integral(poly, C=0):
                 npoly[i] = int(val)
             else:
                 npoly[i] = val
+        if len(npoly) == 2:
+            return npoly[:-1]
         return npoly
 
 
