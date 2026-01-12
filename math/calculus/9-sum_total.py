@@ -5,7 +5,7 @@
 def summation_i_squared(n):
     """ we will create a program that will
     end future developer's j*b... let's go """
-    if not isinstance(n, int):
+    if not isinstance(n, (int, float)):
         return None
     else:
         squared = list(map(lambda x: x**2, range(1, n+1)))
