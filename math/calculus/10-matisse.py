@@ -25,7 +25,7 @@ def isinvalid(poly):
         for i in poly:
             if not isinstance(i, int):
                 notint = True
-        if notint or (any(x < 0 for x in poly)):
+        if notint:
             return True
         else:
             return False
