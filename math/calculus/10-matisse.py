@@ -13,7 +13,7 @@ def poly_derivative(poly):
         npoly = [0] * len(poly)
         for i in range(1, len(poly)):
             npoly[i-1] = poly[i]*i
-        if npoly == []:
+        if npoly == [0]:
             return [0]
         return npoly[:-1]
 
