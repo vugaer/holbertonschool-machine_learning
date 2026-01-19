@@ -6,9 +6,10 @@
 def cat_matrices2D(mat1, mat2, axis=0):
     """asdasdasdasdasasasdasasd
     asasdasasdasdasdasdasdasdasd"""
-    if not axis:
-        mat1.append(mat2)
-    if axis:
+    result = mat1[:]
+    if axis == 0:
+        result += [_ for _ in mat2]
+    if axis == 1:
         for i in range(len(mat2)):
-            mat1[i].append(mat2[i])
-    return mat1
+            result[i] += [mat2[i][0]]
+    return result
