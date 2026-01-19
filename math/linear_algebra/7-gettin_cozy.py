@@ -9,11 +9,11 @@ def cat_matrices2D(m1, m2, axis=0):
         if isinstance(m2[0], int):
             result += [m2]
         elif isinstance(m2[0], list):
-            result += [m2[i] for i in range(len(m2))]
-        # else:
-        #     for i in len(m2):
-        #         result += [m2[i]]
+            result += [m2[:][i] for i in range(len(m2))]
+
+
         print(f'm1={m1}\nm2={m2}\naxis={axis}')
+
     if axis:
         return None
 
