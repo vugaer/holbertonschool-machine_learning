@@ -6,15 +6,17 @@
 def add_matrices2D(arr1, arr2):
     """Look at the functions first,
     then this one! Good practice!"""
-    if True:
-        print(arr1, arr2)
+    if any([arr1 == [[], []], arr1 == [], not arr2]):
+        return []
     elif not checkshape(arr1, arr2):
         return None
     else:
         newarr = []
         for i, j in zip(arr1, arr2):
             newarr += [sum2dmatrix(i, j)]
+        print(arr1, arr2)
         return newarr
+
 
 
 def checkshape(arr1, arr2):
