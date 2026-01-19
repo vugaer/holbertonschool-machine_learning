@@ -13,7 +13,6 @@ def cat_matrices2D(mat1, mat2, axis=0):
     if axis == 1:
         for i in range(len(mat2)):
             if isinstance(mat2[i], int):
-                result[i] += [mat2[i][0]]
-            else:
-                result[i] += [mat2[i]]
+                result[i] += [mat2[i]][0]
+            result[i] += [mat2[i]]
     return result
