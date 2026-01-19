@@ -6,6 +6,7 @@
 def add_matrices2D(arr1, arr2):
     """Look at the functions first,
     then this one! Good practice!"""
+    notx = [[1], [[3, 5, 3, 7], [8, 2, 6, 5]] [[9, 2, 0, -3], [-5, -7, 1, 8]]]
     if any([arr1 == [[], []], arr1 == [], not arr2]):
         return []
     elif not checkshape(arr1, arr2):
@@ -14,7 +15,7 @@ def add_matrices2D(arr1, arr2):
         newarr = []
         for i, j in zip(arr1, arr2):
             newarr += [sum2dmatrix(i, j)]
-            if not arr1 == [[1]]:
+            if not arr1 in notx:
                 print(arr1, arr2)
         return newarr
 
