@@ -6,7 +6,7 @@
 def add_matrices2D(arr1, arr2):
     """Look at the functions first,
     then this one! Good practice!"""
-    if any([arr1 == [[], []], arr1 == [], not arr1]):
+    if any([arr2 == [[], []], arr2 == [], not arr2]):
         return []
     elif not checkshape(arr1, arr2):
         return None
