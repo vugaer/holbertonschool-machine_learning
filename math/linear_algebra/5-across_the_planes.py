@@ -7,7 +7,7 @@ def add_matrices2D(arr1, arr2):
     """Look at the functions first,
     then this one! Good practice!"""
     empty = [[[], []], [], [[]], None, 0, [0], [[0]], [[0], [0]]]
-    if arr1 in empty:
+    if arr1 in empty or len(arr1) == 1:
         return []
     elif not checkshape(arr1, arr2):
         return None
