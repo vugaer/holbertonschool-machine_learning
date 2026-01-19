@@ -10,13 +10,13 @@ def add_matrices2D(arr1, arr2):
     if any([arr1 == [[], []], arr1 == [], not arr2]):
         return []
     elif not checkshape(arr1, arr2):
+        if not arr1 in notx:
+            print(arr1, arr2)
         return None
     else:
         newarr = []
         for i, j in zip(arr1, arr2):
             newarr += [sum2dmatrix(i, j)]
-            if not arr1 in notx:
-                print(arr1, arr2)
         return newarr
 
 
