@@ -8,8 +8,8 @@ def add_arrays(arr1, arr2):
     then this one! Good practice!"""
     if not checkshape(arr1, arr2):
         return None
-    if (not arr1) and (not arr2):
-        return []
+    if (not arr1) or (not arr2):
+        return [0]
     newarr = []
     for i, j in zip(arr1, arr2):
         newarr += [sum2dmatrix(i, j)]
