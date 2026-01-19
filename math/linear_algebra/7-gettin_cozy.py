@@ -9,10 +9,7 @@ def cat_matrices2D(m1, m2, axis=0):
         if isinstance(m2[0], int):
             result += [m2]
         elif isinstance(m2[0], list):
-            if len(m2) == 1:
-                result += [m2[0]]
-            elif len(m2) > 1:
-                result += [m2[i] for i in range(len(m2))]
+            result += [m2[i] for i in range(len(m2))]
         # else:
         #     for i in len(m2):
         #         result += [m2[i]]
