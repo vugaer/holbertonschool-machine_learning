@@ -13,6 +13,7 @@ def cat_matrices2D(m1, m2, axis=0):
         # else:
         #     for i in len(m2):
         #         result += [m2[i]]
+        print(f'm1={m1}\nm2={m2}\naxis={axis}')
     if axis:
         return None
 
