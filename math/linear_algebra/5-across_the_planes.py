@@ -14,7 +14,8 @@ def add_matrices2D(arr1, arr2):
         newarr = []
         for i, j in zip(arr1, arr2):
             newarr += [sum2dmatrix(i, j)]
-        print(arr1, arr2)
+            if not arr1 == [[1]]:
+                print(arr1, arr2)
         return newarr
 
 
