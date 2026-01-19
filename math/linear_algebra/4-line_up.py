@@ -8,7 +8,7 @@ def add_arrays(arr1, arr2):
     then this one! Good practice!"""
     if not checkshape(arr1, arr2):
         return None
-    if (arr1 == []) and (arr2 == []):
+    if (not arr1) and (not arr2):
         return []
     newarr = []
     for i, j in zip(arr1, arr2):
