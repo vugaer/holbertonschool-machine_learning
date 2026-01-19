@@ -6,10 +6,10 @@
 def add_arrays(arr1, arr2):
     """Look at the functions first,
     then this one! Good practice!"""
-    if not checkshape(arr1, arr2):
-        return None
-    elif (arr1 == []) or (arr2 == []):
+    if (arr1 == []) or (arr2 == []):
         return [0]
+    elif not checkshape(arr1, arr2):
+        return None
     else:
         newarr = []
         for i, j in zip(arr1, arr2):
@@ -21,7 +21,7 @@ def checkshape(arr1, arr2):
     """We check the shape of two arrays.
     To eliminate repetition, we import them"""
     matrix_shape = __import__('2-size_me_please').matrix_shape
-    return matrix_shape(arr1) == matrix_shape(arr2)
+    return (matrix_shape(arr1) == matrix_shape(arr2))
 
 
 def sum2dmatrix(arr1, arr2):
