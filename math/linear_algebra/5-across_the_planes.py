@@ -9,8 +9,8 @@ def add_matrices2D(arr1, arr2):
     notx = [[[1]], [[3, 5, 3, 7], [8, 2, 6, 5]], [[9, 2, 0, -3], [-5, -7, 1, 8]]]
     if any([arr1 == [[], []], arr1 == [], not arr2]):
         return []
-        if not arr1 in notx:
-            print(arr1, arr2)
+    if not arr1 in notx:
+        print(arr1, arr2)
     elif not checkshape(arr1, arr2):
         return None
     else:
