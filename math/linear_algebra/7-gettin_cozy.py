@@ -6,7 +6,7 @@
 def cat_matrices2D(mat1, mat2, axis=0):
     """asdasdasdasdasasasdasasd
     asasdasasdasdasdasdasdasdasd"""
-    result = mat1[:]
+    result = [row[:] for row in mat1]
     if axis == 0:
         result += [_ for _ in mat2]
     if axis == 1:
