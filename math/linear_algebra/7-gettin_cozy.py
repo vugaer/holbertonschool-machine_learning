@@ -3,15 +3,17 @@
 "adsadasadasdadasdasd"
 
 
-def cat_matrices2D(mat1, mat2, axis=0):
-    """asdasdasdasdasasasdasasd
-    asasdasasdasdasdasdasdasdasd"""
-    result = [row[:][0] for row in mat1]
-    #print(mat1, mat2, axis)
-    if axis == 0:
-        result += [row[:][0] for row in mat2]
-    if axis == 1:
-        for i in range(len(mat2)):
-            if isinstance(mat2[i], int):
-                result[i] += [mat2[i][0]]
+def cat_matrices2D(m1, m2, axis=0):
+    result = [row[:] for row in m1]
+    if not axis:
+        result += [notrawlist(m2)]
+    if axis:
+        return None
     return result
+
+
+def notrawlist(matrix):
+    if len(matrix) == 1:
+        return matrix[0]
+    else:
+        return matrix[:]
