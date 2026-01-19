@@ -12,5 +12,8 @@ def cat_matrices2D(mat1, mat2, axis=0):
         result += [row[:] for row in mat2]
     if axis == 1:
         for i in range(len(mat2)):
-            result[i] += [mat2[i][0]]
+            if isinstance(mat2[i], int):
+                result[i] += [mat2[i][0]]
+            else:
+                result[i] += [mat2[i]]
     return result
