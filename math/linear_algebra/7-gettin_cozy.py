@@ -8,13 +8,13 @@ def cat_matrices2D(m1, m2, axis=0):
     # Checker
     empty_matrix = [[], [[], []], [[], [], []]]
     conditions = len(m1) < len(m2) or m1 in empty_matrix or m2 in empty_matrix
-    if conditions:
+    if False:
         return None
     # Main
     else:
         if not axis:
             result += [m2[i] for i in range(len(m2))]
-        elif axis:     
+        elif axis:
             for i in range(len(m2)):
                 result[i] += m2[i]
     # print('#############################')  # for Debug
