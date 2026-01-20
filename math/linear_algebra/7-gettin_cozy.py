@@ -6,8 +6,8 @@
 def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
     # Checker
-    """asd
-    """
+    if False:
+        pass
     # Main
     else:
         if not axis:
