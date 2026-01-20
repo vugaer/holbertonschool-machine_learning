@@ -9,6 +9,8 @@ REASONABLE QUESTIONS NOT BULLSHIT LIKE THIS"""
 
 
 def cat_matrices2D(m1, m2, axis=0):
+    """LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS QUESTION
+    LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS Q"""
     result = [row[:] for row in m1]
     # Checker
     conditions = matdiff(m1) or matdiff(m2) or dimdiff(m1, m2, axis)
