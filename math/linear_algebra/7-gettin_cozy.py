@@ -5,7 +5,7 @@
 
 def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
-    if not checker:
+    if not checker(m1, m2)
         return None
     elif not axis:
         result += [m2[i] for i in range(len(m2))]
