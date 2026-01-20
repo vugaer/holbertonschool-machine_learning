@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import numpy as np
 """ nice good job let's learn some stuff
 that we don't need in the future..."""
 
