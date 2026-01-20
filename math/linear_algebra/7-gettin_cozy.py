@@ -5,53 +5,63 @@
 
 def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
+
     # Checker
-    empty_matrix = [[], [[], []], [[], [], []]]
-    conditions = colrowdiff(m2, axis) or m1 in empty_matrix or m2 in empty_matrix
+    conditions = (
+        colrowdiff(m1) or
+        colrowdiff(m2) or
+        dimdiff(m1, m2, axis)
+    )
     if conditions:
         return None
+
     # Main
     else:
-        if not axis:
-            result += [m2[i] for i in range(len(m2))]
-        elif axis:
+        if not axis:  # axis == 0
+            result += [row[:] for row in m2]
+        elif axis:    # axis == 1
             for i in range(len(m1)):
-                result[i] += m2[i]
-    # print('#############################')  # for Debug
-    # print(f'm1={m1}\nm2={m2}\naxis={axis}')
+                result[i] += m2[i][:]
+
     return result
 
-def colrowdiff(m2, axis):
-    """Returns True if m2 has inconsistent shape (ragged), else False"""
+
+def colrowdiff(m):
+    """Returns True if matrix is empty / invalid / ragged, else False"""
+
+    # must be a list
+    if not isinstance(m, list):
+        return True
+
+    # empty matrix
+    if len(m) == 0:
+        return True
+
+    # must be list of lists and no empty rows
+    if not all(isinstance(row, list) for row in m):
+        return True
+    if any(len(row) == 0 for row in m):
+        return True
+
+    # rectangular check (no ragged rows)
+    row_len = len(m[0])
+    if any(len(row) != row_len for row in m):
+        return True
+
+    return False
+
+
+def dimdiff(m1, m2, axis):
+    """Returns True if dimensions do NOT match for concatenation, else False"""
 
     # axis must be 0 or 1
     if axis not in (0, 1):
         return True
 
-    # must be a list (matrix)
-    if not isinstance(m2, list):
-        return True
+    # at this point matrices are assumed non-empty rectangular (checked already)
+    if not axis:  # axis == 0: columns must match
+        return len(m1[0]) != len(m2[0])
 
-    # empty matrix is invalid
-    if len(m2) == 0:
-        return True
-
-    lengths = []
-
-    for row in m2:
-        # each row must be a list
-        if not isinstance(row, list):
-            return True
-
-        lengths.append(len(row))
-
-    # if any row is empty -> invalid matrix
-    if 0 in lengths:
-        return True
-
-    # ragged matrix check
-    if len(set(lengths)) != 1:
-        return True
-
-    return False
+    # axis == 1: rows must match
+    return len(m1) != len(m2)
 
