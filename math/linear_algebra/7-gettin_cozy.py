@@ -7,7 +7,7 @@ def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
     # Checker
     empty_matrix = [[], [[], []], [[], [], []]]
-    conditions = coldiff(m2) or m1 in empty_matrix or m2 in empty_matrix
+    conditions = colrowdiff(m2, axis) or m1 in empty_matrix or m2 in empty_matrix
     if conditions:
         return None
     # Main
@@ -21,15 +21,22 @@ def cat_matrices2D(m1, m2, axis=0):
     # print(f'm1={m1}\nm2={m2}\naxis={axis}')
     return result
 
-def coldiff(m2):
-    """ Column Match Tool for Checker """
+def colrowdiff(m2, axis):
+    """Returns True if m2 has inconsistent shape (ragged), else False"""
     lengths = []
-    for i in m2:
-        if isinstance(i, (int, float)):
-            lengths += [1]
-        elif isinstance(i, list):
-            lengths += [len(i)]
-    if len(set(lengths)) == 1:
-        return False
-    else:
+
+    for row in m2:
+        if not isinstance(row, list):
+            return True
+        lengths.append(len(row))
+
+    # if any row is empty -> invalid matrix
+    if 0 in lengths:
         return True
+
+    # ragged matrix check
+    if len(set(lengths)) != 1:
+        return True
+
+    return False
+
