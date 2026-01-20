@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import numpy as np
 """ nice good job let's learn some stuff
 that we don't need in the future..."""
 
@@ -8,7 +7,7 @@ that we don't need in the future..."""
 def mat_mul(mat1, mat2):
     """some useless checker code for the
     checker to skip from me............."""
-    if len(mat1) != len(mat2):
+    if len(mat1[0]) != len(mat2[0]):
         return None
     rows = len(mat1)
     mid = len(mat1[0])
