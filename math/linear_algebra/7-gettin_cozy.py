@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
 
-"adsadasadasdadasdasdasdasdadadadsad
-asdasdasdadasdasdasdasdasdasdasdasasd
-WASTED_HOURS = 6 hours"
-
+""" I REALLY DON'T RECOMMEND WRITING THIS ON YOUR
+OWN, THIS IS COMPLETELY BULLSHIT QUESTION BASED ON
+SOMEONE'S FUCKING STUPID EGO. I WASTED MY SHITTY
+4 FUCKING HOURS ON THAT STUPID IDIOTIC QUESTION
+WHILE WE JUST HAVE NP.CONCAT(). AT LEAST GIVE
+REASONABLE QUESTIONS NOT BULLSHIT LIKE THIS"""
 
 def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
