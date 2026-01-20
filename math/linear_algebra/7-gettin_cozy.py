@@ -6,7 +6,7 @@
 def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
     if not axis:
-        result.append([m2[i] for i in range(len(m2))])
+        result += [m2[i] for i in range(len(m2))]
     if axis:     
         for i in range(len(m2)):
             result[i] += m2[i]
