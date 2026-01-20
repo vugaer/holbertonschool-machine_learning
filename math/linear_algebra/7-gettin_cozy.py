@@ -7,8 +7,8 @@ def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
     # Checker
     empty_matrix = [[], [[], []], [[], [], []]]
-    conditions = len(m1) < len(m2) or m1 in empty_matrix or m2 in empty_matrix
-    if False:
+    conditions = coldiff(m2) or m1 in empty_matrix or m2 in empty_matrix
+    if conditions:
         return None
     # Main
     else:
@@ -21,4 +21,15 @@ def cat_matrices2D(m1, m2, axis=0):
     # print(f'm1={m1}\nm2={m2}\naxis={axis}')
     return result
 
-
+def coldiff(m2):
+    """ Column Match Tool for Checker """
+    lengths = []
+    for i in m2:
+        if isinstance(i, (int, float)):
+            lengths += [1]
+        elif isinstance(i, list):
+            lengths += [len(i)]
+    if len(set(lengths)) == 1:
+        return False
+    else:
+        return True
