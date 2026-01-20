@@ -7,6 +7,8 @@ that we don't need in the future..."""
 def mat_mul(mat1, mat2):
     """some useless checker code for the
     checker to skip from me............."""
+    if len(mat1) == len(mat2):
+        return None
     rows = len(mat1)
     mid = len(mat1[0])
     cols = len(mat2[0])
