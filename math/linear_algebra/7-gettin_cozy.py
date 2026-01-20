@@ -64,4 +64,3 @@ def dimdiff(m1, m2, axis):
 
     # axis == 1: rows must match
     return len(m1) != len(m2)
-
