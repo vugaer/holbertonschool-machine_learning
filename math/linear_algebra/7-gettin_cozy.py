@@ -39,4 +39,4 @@ def dimdiff(m1, m2, axis):
     LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS Q"""
     if not axis:  # axis=0
         return len(m1[0]) != len(m2[0])
-    return len(m1) != len(m2) # axis=1
+    return len(m1) != len(m2)  # axis=1
