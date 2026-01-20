@@ -7,7 +7,7 @@ def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
     # Checker
     empty_matrix = [[], [[], []], [[], [], []]]
-    conditions = any(len(m1) != len(m2), m1 in empty_matrix, m2 in empty_matrix)
+    conditions = any([len(m1) < len(m2), m1 in empty_matrix, m2 in empty_matrix])
     if conditions:
         return None
     # Main
