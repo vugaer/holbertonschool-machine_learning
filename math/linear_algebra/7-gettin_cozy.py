@@ -19,7 +19,7 @@ def cat_matrices2D(m1, m2, axis=0):
     LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS Q"""
     result = [row[:] for row in m1]
     # Checker
-    if dimdiff(m1, m2, axis):
+    if dimensionsmatch(m1, m2, axis):
         return None
     # Main
     else:
@@ -30,7 +30,8 @@ def cat_matrices2D(m1, m2, axis=0):
                 result[i] += m2[i][:]
     return result
 
-def dimdiff(m1, m2, axis):
+
+def dimensionsmatch(m1, m2, axis):
     """LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS QUESTION
     LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS Q"""
     if not axis:  # axis=0
