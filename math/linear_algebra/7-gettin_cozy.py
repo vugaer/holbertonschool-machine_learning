@@ -13,8 +13,8 @@ def cat_matrices2D(m1, m2, axis=0):
     LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS Q"""
     result = [row[:] for row in m1]
     # Checker
-    conditions = matdiff(m1) or matdiff(m2) or dimdiff(m1, m2, axis)
-    if conditions:
+    #conditions = matdiff(m1) or matdiff(m2) or dimdiff(m1, m2, axis)
+    if dimdiff(m1, m2, axis):
         return None
     # Main
     else:
@@ -26,14 +26,14 @@ def cat_matrices2D(m1, m2, axis=0):
     return result
 
 
-def matdiff(m):
-    """FUCK WHOEVER EVER THOUGHT OF THIS QUESTION
-    WTF IS THAT??? ARE YOU INSANE? FUCK YOU!!!"""
-    if not isinstance(m, list) or len(m) == 0:
-        return True
-    if not all(isinstance(row, list) for row in m):
-        return True
-    return False
+# def matdiff(m):
+#     """FUCK WHOEVER EVER THOUGHT OF THIS QUESTION
+#     WTF IS THAT??? ARE YOU INSANE? FUCK YOU!!!"""
+#     if not isinstance(m, list) or len(m) == 0:
+#         return True
+#     if not all(isinstance(row, list) for row in m):
+#         return True
+#     return False
 
 
 def dimdiff(m1, m2, axis):
