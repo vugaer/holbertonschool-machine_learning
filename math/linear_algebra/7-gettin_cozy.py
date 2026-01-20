@@ -23,7 +23,8 @@ def cat_matrices2D(m1, m2, axis=0):
 
 
 def matdiff(m):
-    """Return True if m is NOT a proper rectangular 2D matrix (0 cols allowed)."""
+    """FUCK WHOEVER EVER THOUGHT OF THIS QUESTION
+    WTF IS THAT??? ARE YOU INSANE?"""
     if not isinstance(m, list) or len(m) == 0:
         return True
     if not all(isinstance(row, list) for row in m):
@@ -48,4 +49,3 @@ def dimdiff(m1, m2, axis):
 
     # axis == 1: rows must match
     return len(m1) != len(m2)
-
