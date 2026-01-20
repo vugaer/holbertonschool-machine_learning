@@ -5,8 +5,10 @@
 
 def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
-    if not checker(m1, m2):
+    # Checker
+    if depth(m1) != depth(m2):
         return None
+    # Main
     else:
         if not axis:
             result += [m2[i] for i in range(len(m2))]
@@ -17,6 +19,9 @@ def cat_matrices2D(m1, m2, axis=0):
     # print(f'm1={m1}\nm2={m2}\naxis={axis}')
     return result
 
-def checker(m1, m2):
-    matrix_shape = __import__('2-size_me_please').matrix_shape
-    return matrix_shape(m1) == matrix_shape(m2)
+def depth(matrix):
+    depth = 0
+    while isinstance(matrix, list):
+        depth += 1
+        matrix = matrix[0]
+    return depth
