@@ -3,9 +3,10 @@
 """ I REALLY DON'T RECOMMEND WRITING THIS ON YOUR
 OWN, THIS IS COMPLETELY BULLSHIT QUESTION BASED ON
 SOMEONE'S FUCKING STUPID EGO. I WASTED MY SHITTY
-4 FUCKING HOURS ON THAT STUPID IDIOTIC QUESTION
+5 FUCKING HOURS ON THAT STUPID IDIOTIC QUESTION
 WHILE WE JUST HAVE NP.CONCAT(). AT LEAST GIVE
 REASONABLE QUESTIONS NOT BULLSHIT LIKE THIS"""
+
 
 def cat_matrices2D(m1, m2, axis=0):
     result = [row[:] for row in m1]
@@ -22,6 +23,7 @@ def cat_matrices2D(m1, m2, axis=0):
                 result[i] += m2[i][:]          # copy slice
     return result
 
+
 def matdiff(m):
     """FUCK WHOEVER EVER THOUGHT OF THIS QUESTION
     WTF IS THAT??? ARE YOU INSANE? FUCK YOU!!!"""
@@ -29,23 +31,12 @@ def matdiff(m):
         return True
     if not all(isinstance(row, list) for row in m):
         return True
-
-    # # rectangular check (allow row length 0)
-    # row_len = len(m[0])
-    # for row in m:
-    #     if len(row) != row_len:
-    #         return True
-
     return False
 
 
 def dimdiff(m1, m2, axis):
-    # """Return True if dimensions do NOT match for concatenation."""
-    # if axis not in (0, 1):
-    #     return True
-
-    if not axis:  # axis == 0: columns must match (including 0)
+    """LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS QUESTION
+    LOREM IPSUM DOLOR FUCK WHOEVER WROTE THIS Q"""
+    if not axis:  # axis=0
         return len(m1[0]) != len(m2[0])
-
-    # axis == 1: rows must match
-    return len(m1) != len(m2)
+    return len(m1) != len(m2) # axis=1
