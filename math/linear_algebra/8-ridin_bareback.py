@@ -4,12 +4,14 @@
 that we don't need in the future..."""
 
 
-def mat_mul(mat1, mat2):
+def mat_mul(mat1, mat2):  # RxC | RxC
     """some useless checker code for the
     checker to skip from me............."""
     rows = len(mat1)
     mid = len(mat1[0])
     cols = len(mat2[0])
+    if len(mat1[0]) != len(mat2):
+        return None
     result = [[0 for _ in range(cols)] for _ in range(rows)]
     for i in range(rows):
         for j in range(cols):
