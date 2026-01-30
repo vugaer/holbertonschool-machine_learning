@@ -9,6 +9,7 @@ def determinant(matrix):
     asdasdasdasdasdasdasdasdasdasdasd"""
     # Extreme Cases
     print(matrix)
+    print(not all([isinstance(i, list) for i in matrix]))
     if matrix == [[]]:
         return 1
     elif matrix == []:
