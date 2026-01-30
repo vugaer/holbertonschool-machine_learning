@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+import numpy as np
 """we are trying to find a determinant"""
 
 
@@ -16,7 +17,5 @@ def determinant(matrix):
         raise ValueError("matrix must be a square matrix")
     if len(matrix[0]) == 1:
         return matrix[0][0]
-    elif len(matrix[0]) == 2:
-        matrixloop(matrix)
-
-    import numpy
+    else:
+        return int(np.linalg.det(matrix))
