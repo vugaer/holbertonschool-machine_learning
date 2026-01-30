@@ -7,7 +7,6 @@ def determinant(matrix):
     """asdasdasdasdasdasdasdasdasdasd
     asdasdasdasdasdasdasdasdasdasdasd
     asdasdasdasdasdasdasdasdasdasdasd"""
-    import numpy
     # Extreme Cases
     if matrix == [[]]:
         return 1
@@ -18,4 +17,4 @@ def determinant(matrix):
     if len(matrix[0]) == 1:
         return matrix[0][0]
     else:
-        return round(numpy.linalg.det(matrix))
+        return round(np.linalg.det(matrix))
