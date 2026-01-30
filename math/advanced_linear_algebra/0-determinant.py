@@ -8,7 +8,6 @@ def determinant(matrix):
     asdasdasdasdasdasdasdasdasdasdasd
     asdasdasdasdasdasdasdasdasdasdasd"""
     # Extreme Cases
-    print(matrix)
     if matrix == [[]]:
         return 1
     elif matrix == []:
