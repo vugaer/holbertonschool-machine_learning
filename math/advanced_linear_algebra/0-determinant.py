@@ -14,7 +14,5 @@ def determinant(matrix):
         raise TypeError("matrix must be a list of lists")
     elif not all(len(srow) == len(matrix) for srow in matrix):
         raise ValueError("matrix must be a square matrix")
-    # for 2x2
-    if len(matrix) == 2:
-        return matrix[0][0]*matrix[1][1] - matrix[0][1]*matrix[1][0]
-    # for 3x3
+    if len(matrix[0]) == 1:
+        return matrix[0][0]
