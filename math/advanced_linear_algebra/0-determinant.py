@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import numpy
 """we are trying to find a determinant"""
 
 
@@ -8,6 +7,7 @@ def determinant(matrix):
     """asdasdasdasdasdasdasdasdasdasd
     asdasdasdasdasdasdasdasdasdasdasd
     asdasdasdasdasdasdasdasdasdasdasd"""
+    import numpy
     # Extreme Cases
     if matrix == [[]]:
         return 1
