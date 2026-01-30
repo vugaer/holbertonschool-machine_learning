@@ -17,4 +17,4 @@ def determinant(matrix):
     if len(matrix[0]) == 1:
         return matrix[0][0]
     else:
-        return round(np.linalg.det(matrix))
+        return round(numpy.linalg.det(matrix))
