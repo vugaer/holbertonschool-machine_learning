@@ -10,9 +10,7 @@ def determinant(matrix):
     # Extreme Cases
     if matrix == [[]]:
         return 1
-    elif matrix == []:
-        raise TypeError("matrix must be a list of lists")
-    elif not all([isinstance(i, list) for i in matrix]):
+    elif matrix == [] or not all([isinstance(i, list) for i in matrix]):
         raise TypeError("matrix must be a list of lists")
     elif not all(len(srow) == len(matrix) for srow in matrix):
         raise ValueError("matrix must be a square matrix")
@@ -20,4 +18,3 @@ def determinant(matrix):
     if len(matrix) == 2:
         return matrix[0][0]*matrix[1][1] - matrix[0][1]*matrix[1][0]
     # for 3x3
-
