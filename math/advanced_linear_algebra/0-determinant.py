@@ -9,13 +9,10 @@ def determinant(matrix):
     asdasdasdasdasdasdasdasdasdasdasd"""
     # Extreme Cases
     print(matrix)
-    print(not all([isinstance(i, list) for i in matrix]))
     if matrix == [[]]:
         return 1
     elif matrix == []:
         raise TypeError("matrix must be a list of lists")
-    elif len(matrix[0]) == 1:
-        return matrix[0][0]
     elif not all([isinstance(i, list) for i in matrix]):
         raise TypeError("matrix must be a list of lists")
     elif not all(len(srow) == len(matrix) for srow in matrix):
