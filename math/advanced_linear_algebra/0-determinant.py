@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-import numpy as np
+import numpy
 """we are trying to find a determinant"""
 
 
@@ -18,4 +18,4 @@ def determinant(matrix):
     if len(matrix[0]) == 1:
         return matrix[0][0]
     else:
-        return int(np.linalg.det(matrix))
+        return int(numpy.linalg.det(matrix))
