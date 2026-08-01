@@ -1,27 +1,29 @@
 #!/usr/bin/env python3
-"""A module that does the trick"""
+"""Extract Word2Vec embeddings into a Keras Embedding layer."""
 import tensorflow as tf
 
 
 def gensim_to_keras(model):
     """
-    Converts a trained gensim Word2Vec model to a trainable Keras
-    Embedding layer.
+    Converts a trained gensim Word2Vec model to a trainable
+    Keras Embedding layer.
+
+    Args:
+        model: A trained gensim Word2Vec model.
+
+    Returns:
+        A trainable tf.keras.layers.Embedding layer initialized
+        with the Word2Vec vectors.
     """
     weights = model.wv.vectors
 
     embedding = tf.keras.layers.Embedding(
         input_dim=weights.shape[0],
         output_dim=weights.shape[1],
-        weights=[weights],
-        trainable=True
+        trainable=True,
     )
 
-    return embedding
-from gensim.test.utils import common_texts
-word2vec_model = __import__('2-word2vec').word2vec_model
-gensim_to_keras = __import__('3-gensim_to_keras').gensim_to_keras
+    embedding.build((None,))
+    embedding.set_weights([weights])
 
-print(common_texts[:2])
-w2v = word2vec_model(common_texts, min_count=1)
-print(gensim_to_keras(w2v))
+    return embedding
