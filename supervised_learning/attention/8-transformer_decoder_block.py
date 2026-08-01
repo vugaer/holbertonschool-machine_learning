@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
+"""asdasdasdasdasdasdasdasdasdasd
+asdasdasdasdasdasdasdasdasdasdads"""
 import tensorflow as tf
 
 MultiHeadAttention = __import__('6-multihead_attention').MultiHeadAttention
 
 
 class DecoderBlock(tf.keras.layers.Layer):
-    """Transformer Decoder Block."""
+    """Transformer Decoder Block.asdadasdasd
+    asdasdasdasdadasdasdasdadasdasdasdasadasd"""
 
     def __init__(self, dm, h, hidden, drop_rate=0.1):
         super().__init__()
@@ -35,7 +38,8 @@ class DecoderBlock(tf.keras.layers.Layer):
 
     def call(self, x, encoder_output, training,
              look_ahead_mask, padding_mask):
-        """Forward pass."""
+        """Forward pass.asdasdasdasdadadasda
+        asdadasdasdasddasdasdasdasdasdadasd"""
 
         # Masked self-attention
         attn1, _ = self.mha1(
