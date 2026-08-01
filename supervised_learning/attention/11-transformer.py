@@ -43,7 +43,7 @@ class Transformer(tf.keras.Model):
              encoder_mask,
              look_ahead_mask,
              decoder_mask):
-        """Processes sequences through encoder and decoder before prediction."""
+        """Processes sequences through encoder and decoder before predic"""
         encoder_output = self.encoder(
             inputs,
             training,
