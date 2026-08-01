@@ -1,54 +1,87 @@
 #!/usr/bin/env python3
-"""Class dataset"""
+"""Load and prepare translation datasets."""
 
-import tensorflow.compat.v2 as tf
-import tensorflow_datasets as tfds
+import tensorflow as tf
+import transformers
+from setup import load_pt2en
 
 
-class Dataset():
-    """Class Dataset"""
+class Dataset:
+    """Prepare datasets and train subword tokenizers."""
 
     def __init__(self):
-        """Class constructor"""
-        examples, metadata = tfds.load('ted_hrlr_translate/pt_to_en',
-                                       with_info=True,
-                                       as_supervised=True)
-        self.data_train, self.data_valid = examples['train'], \
-            examples['validation']
+        """Initialize datasets and tokenizers."""
+        self.data_train = load_pt2en('train')
+        self.data_valid = load_pt2en('validation')
 
-        self.tokenizer_pt, self.tokenizer_en = \
-            self.tokenize_dataset(self.data_train)
+        self.tokenizer_pt, self.tokenizer_en = self.tokenize_dataset(
+            self.data_train
+        )
+
+        self.data_train = self.data_train.map(self.tf_encode)
+        self.data_valid = self.data_valid.map(self.tf_encode)
 
     def tokenize_dataset(self, data):
-        """tokenize data """
+        """Train tokenizers from translation pairs."""
 
-        tokenizer_pt = tfds.features.text.SubwordTextEncoder.build_from_corpus(
-            (pt.numpy() for pt, en in data),
-            target_vocab_size=2 ** 15)
+        def pt_iterator():
+            for pt, _ in data:
+                yield pt.numpy().decode("utf-8")
 
-        tokenizer_en = tfds.features.text.SubwordTextEncoder.build_from_corpus(
-            (en.numpy() for pt, en in data),
-            target_vocab_size=2 ** 15)
+        def en_iterator():
+            for _, en in data:
+                yield en.numpy().decode("utf-8")
+
+        tokenizer_pt = transformers.AutoTokenizer.from_pretrained(
+            "neuralmind/bert-base-portuguese-cased"
+        )
+        tokenizer_en = transformers.AutoTokenizer.from_pretrained(
+            "bert-base-uncased"
+        )
+
+        tokenizer_pt = tokenizer_pt.train_new_from_iterator(
+            pt_iterator(),
+            vocab_size=2 ** 13
+        )
+        tokenizer_en = tokenizer_en.train_new_from_iterator(
+            en_iterator(),
+            vocab_size=2 ** 13
+        )
 
         return tokenizer_pt, tokenizer_en
 
     def encode(self, pt, en):
-        """ encoding """
+        """Encode translation sentence pairs."""
 
-        lang1 = [self.tokenizer_pt.vocab_size] + self.tokenizer_pt.encode(
-            pt.numpy()) + [self.tokenizer_pt.vocab_size + 1]
+        pt_tokens = (
+            [self.tokenizer_pt.vocab_size]
+            + self.tokenizer_pt.encode(
+                pt.numpy().decode("utf-8"),
+                add_special_tokens=False
+            )
+            + [self.tokenizer_pt.vocab_size + 1]
+        )
 
-        lang2 = [self.tokenizer_en.vocab_size] + self.tokenizer_en.encode(
-            en.numpy()) + [self.tokenizer_en.vocab_size + 1]
+        en_tokens = (
+            [self.tokenizer_en.vocab_size]
+            + self.tokenizer_en.encode(
+                en.numpy().decode("utf-8"),
+                add_special_tokens=False
+            )
+            + [self.tokenizer_en.vocab_size + 1]
+        )
 
-        return lang1, lang2
+        return pt_tokens, en_tokens
 
     def tf_encode(self, pt, en):
-        """ tf_encode"""
-        result_pt, result_en = tf.py_function(self.encode,
-                                              [pt, en],
-                                              [tf.int64, tf.int64])
-        result_pt.set_shape([None])
-        result_en.set_shape([None])
+        """Wrap encoding for TensorFlow datasets."""
+        pt, en = tf.py_function(
+            self.encode,
+            [pt, en],
+            [tf.int64, tf.int64]
+        )
 
-        return result_pt, result_en
+        pt.set_shape([None])
+        en.set_shape([None])
+
+        return pt, en
