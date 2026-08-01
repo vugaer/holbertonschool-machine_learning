@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
+"""asdasdasdasdasdasdasd
+asdasdasdasdasdasdasdasdad
+asdasdasdasdasdadasdasdad"""
 import tensorflow as tf
 
 MultiHeadAttention = __import__('6-multihead_attention').MultiHeadAttention
 
 
 class EncoderBlock(tf.keras.layers.Layer):
-    """Transformer encoder block."""
+    """Transformer encoder blockasdasdasdasdasda
+    asdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaasd
+    asddddddddddddddddddddddddddddddddddddddddd"""
 
     def __init__(self, dm, h, hidden, drop_rate=0.1):
         super().__init__()
