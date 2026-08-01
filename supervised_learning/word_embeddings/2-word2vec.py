@@ -1,52 +1,44 @@
 #!/usr/bin/env python3
-"""Word2Vec model trainer"""
+"""Creates and trains a Word2Vec model."""
 
-from gensim.models import Word2Vec
+import gensim
 
 
-def word2vec_model(
-    sentences,
-    vector_size=100,
-    min_count=5,
-    window=5,
-    negative=5,
-    cbow=True,
-    epochs=5,
-    seed=0,
-    workers=1
-):
+def word2vec_model(sentences, vector_size=100, min_count=5,
+                   window=5, negative=5, cbow=True,
+                   epochs=5, seed=0, workers=1):
     """
     Creates, builds, and trains a Word2Vec model.
 
     Args:
-        sentences: list of tokenized sentences
-        vector_size: dimensionality of the word vectors
-        min_count: minimum word frequency
-        window: maximum distance between current and predicted word
-        negative: number of negative samples
-        cbow: True for CBOW, False for Skip-gram
-        epochs: number of training epochs
-        seed: random seed
-        workers: number of worker threads
+        sentences: List of tokenized sentences.
+        vector_size: Size of the word vectors.
+        min_count: Minimum word frequency.
+        window: Maximum distance between current and predicted word.
+        negative: Number of negative samples.
+        cbow: True for CBOW, False for Skip-gram.
+        epochs: Number of training epochs.
+        seed: Random seed.
+        workers: Number of worker threads.
 
     Returns:
-        Trained gensim.models.Word2Vec model.
+        A trained gensim Word2Vec model.
     """
-    model = Word2Vec(
+    model = gensim.models.Word2Vec(
         vector_size=vector_size,
         min_count=min_count,
         window=window,
         negative=negative,
         sg=0 if cbow else 1,
         seed=seed,
-        workers=workers,
+        workers=workers
     )
 
     model.build_vocab(sentences)
     model.train(
         sentences,
         total_examples=model.corpus_count,
-        epochs=epochs,
+        epochs=epochs
     )
 
     return model
