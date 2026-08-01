@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Train a Word2Vec model."""
 
-from gensim.models import Word2Vec
+from gensim.models import Word2Vec # import gensim
 
 
 def word2vec_model(sentences, vector_size=100, min_count=5,
