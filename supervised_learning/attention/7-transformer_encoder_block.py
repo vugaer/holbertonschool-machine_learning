@@ -30,7 +30,8 @@ class EncoderBlock(tf.keras.layers.Layer):
         self.dropout2 = tf.keras.layers.Dropout(drop_rate)
 
     def call(self, x, training, mask=None):
-        """Forward pass."""
+        """Forward passasdhajhsd
+        adahjsbdhabsdjhasbdjhabs."""
 
         attn_output, _ = self.mha(x, x, x, mask)
         attn_output = self.dropout1(attn_output, training=training)
